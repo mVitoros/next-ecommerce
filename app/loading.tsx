@@ -1,10 +1,7 @@
-import ProductsSkeleton from "./ProductsSkeleton";
-
 export default function Loading() {
   return (
-    <main className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Home</h1>
-      <ProductsSkeleton />
-    </main>
+    <div className="flex items-center justify-center h-screen">
+      <div className="w-20 h-20 border-t-2 border-b-2 border-gray-800 rounded-full animate-spin"></div>
+    </div>
   );
 }

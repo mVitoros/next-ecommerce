@@ -10,6 +10,7 @@ import { ProductCard } from "./ProductCard";
 import { prisma } from "@/lib/prisma";
 import { Suspense } from "react";
 import ProductsSkeleton from "./ProductsSkeleton";
+import { sleep } from "@/lib/utils";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -23,7 +24,7 @@ async function Products({ page }: { page: number }) {
     take: pageSize,
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await sleep(1000);
 
   return (
     <>
