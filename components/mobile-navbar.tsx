@@ -14,7 +14,7 @@ import { categories } from "./navbar";
 export function MobileNavbar() {
   return (
     <Sheet>
-      <SheetTrigger asChild className="md:hidden">
+      <SheetTrigger asChild className="md:hidden -ml-[10px]">
         <Button variant="ghost" size="icon">
           <Menu className="h-5 w-5" />
         </Button>

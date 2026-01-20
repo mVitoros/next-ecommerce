@@ -35,11 +35,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <>
+          <div className="px-3">
             <header>
               <Navbar />
             </header>
-            <div className="px-3">
+            <>
               {children}
               <footer className="border-t border-dashed py-6">
                 <div className="container mx-auto text-sm text-muted-foreground text-center">
@@ -47,8 +47,8 @@ export default function RootLayout({
                   reserved.
                 </div>
               </footer>
-            </div>
-          </>
+            </>
+          </div>
         </ThemeProvider>
       </body>
     </html>

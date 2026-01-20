@@ -29,7 +29,7 @@ async function Products({ page }: { page: number }) {
 
   return (
     <>
-      <p>
+      <p className="pb-1">
         Showing <b>{products.length}</b> products
       </p>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -66,7 +66,7 @@ export default async function HomePage(props: { searchParams: SearchParams }) {
             <PaginationItem key={index}>
               <PaginationLink
                 href={`?page=${index + 1}`}
-                className={page === index + 1 ? "active" : ""}
+                isActive={page === index + 1}
               >
                 {index + 1}
               </PaginationLink>
