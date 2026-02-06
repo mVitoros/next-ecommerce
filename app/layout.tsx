@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-prodiver";
 import { Navbar } from "@/components/navbar";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,27 +30,29 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="px-3">
-            <header>
-              <Navbar />
-            </header>
-            <>
-              {children}
-              <footer className="border-t border-dashed py-6">
-                <div className="container mx-auto text-sm text-muted-foreground text-center">
-                  © {new Date().getFullYear()} Michael Vitoros. All rights
-                  reserved.
-                </div>
-              </footer>
-            </>
-          </div>
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="px-3">
+              <header>
+                <Navbar />
+              </header>
+              <>
+                {children}
+                <footer className="border-t border-dashed py-6">
+                  <div className="container mx-auto text-sm text-muted-foreground text-center">
+                    © {new Date().getFullYear()} Michael Vitoros. All rights
+                    reserved.
+                  </div>
+                </footer>
+              </>
+            </div>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

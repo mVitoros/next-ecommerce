@@ -5,6 +5,7 @@ import { CartIndicator } from "./cart-indicator";
 import { Suspense } from "react";
 import { CartIndicatorSkeleton } from "./cart-indicator-skeleton";
 import { MobileNavbar } from "./mobile-navbar";
+import AuthStatus from "./auth-status";
 
 export const categories = [
   { id: 1, name: "Electronics", href: "/search/electronics" },
@@ -39,6 +40,8 @@ export function Navbar() {
         <div className="block w-full mx-4 md:mx-8">
           <SearchInput />
         </div>
+
+        <AuthStatus />
 
         <div className="flex items-center gap-0">
           <Suspense fallback={<CartIndicatorSkeleton />}>
